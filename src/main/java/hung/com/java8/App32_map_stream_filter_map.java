@@ -9,6 +9,16 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Consumer;
 
+/**
+Find(funtionPointer): tìm kiếm phần tử thỏa mãn điều kiện functionPointer = predicate
+foreach(funtionPointer): duyệt array
+filter(fp): lọc các giá trị thỏa điều kiện functionpoint = predicate => return array gồm các phần tử thỏa mãn điều kiện predicate.
+ map(funtionPointer): convert tới Array mới => return array
+ slice(): trích xuất Array là tập con của Array này 
+ join(): kết hợp các phần tử của Array thành 1 String ngăn cách bởi Separator => tạo Json Array hoặc *.csv file.
+reduce():  duyệt array mà có 1 biến accumulate cộng rồn giá trị (giúp ghi nhớ giá trị cộng rồn)
+
+ */
 public class App32_map_stream_filter_map {
 
 	public static class MyEntry implements Map.Entry<String,String>{
@@ -62,6 +72,11 @@ public class App32_map_stream_filter_map {
 		    });
 		
 		System.out.println("=========================== map ====================");
+		
+		/**
+		 * Map: là thuật ngữ để chỉ việc interceptor nhặc format lại dữ liệu
+		 * Thay đổi kiểu dữ liệu, hoặc thay đổi value => số phần tử item trong list ko đổi
+		 */
 		map.entrySet()   // Set<Map.Entry<K, V>> entrySet();
 	    .stream()
 	    .<Map.Entry<String, String>>map(entry-> {

@@ -8,6 +8,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+Find(funtionPointer): tìm kiếm phần tử thỏa mãn điều kiện functionPointer = predicate
+foreach(funtionPointer): duyệt array
+filter(fp): lọc các giá trị thỏa điều kiện functionpoint = predicate => return array gồm các phần tử thỏa mãn điều kiện predicate.
+ map(funtionPointer): convert tới Array mới => return array
+ slice(): trích xuất Array là tập con của Array này 
+ join(): kết hợp các phần tử của Array thành 1 String ngăn cách bởi Separator => tạo Json Array hoặc *.csv file.
+reduce():  duyệt array mà có 1 biến accumulate cộng rồn giá trị (giúp ghi nhớ giá trị cộng rồn)
+
+ */
+
 public class App22_List_Stream_filter_map {
 
 	public static void main(String[] args) {
@@ -28,12 +39,15 @@ public class App22_List_Stream_filter_map {
 		 */
 		// stream(): là builder pattern và functionPointer là trọng tâm của Java8.
 		list.stream()
-		.filter(item-> item.equals("one"))     // True: giữ lại item. False: loại bỏ item
+		.filter(item-> item.equals("one"))     //return True: giữ lại item. False: loại bỏ item
 		.forEach(item -> System.out.println(item)); 
 		
 		
 		System.out.println("=========================== filter new list ====================");
-		// tạo một List mới sau khi filter List cũ:
+		/**
+		 *  tạo một List mới sau khi filter List cũ:
+		 *  Filter tạo kiểu stream. Muốn tạo List mới từ filter thì phải gọi .collect()
+		 */
 		List<String> listFilter = list.stream()
 									  .filter(item-> item.equals("two"))     // True: giữ lại item. False: loại bỏ item
 									  .collect(Collectors.toList());    //tạo new List (List cũ vẫn giữ nguyên ko đổi)

@@ -19,6 +19,7 @@ public class App3_Map {
 		map.put("F", 60);
 		
 		// Java 7
+		// map.entrySet(): trả về kiểu Set
 		for (Map.Entry<String, Integer> entry : map.entrySet() ) {
 			System.out.println("{"+entry.getKey()+"," + entry.getValue() + "}");
 		}

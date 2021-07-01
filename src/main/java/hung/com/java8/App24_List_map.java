@@ -15,8 +15,14 @@ public class App24_List_map {
 	public static void main(String[] args) {
 		
 		List<String> list = Arrays.asList("a", "b", "c");
+		
+		/**
+		 * Map: là thuật ngữ để chỉ việc interceptor nhặc format lại dữ liệu
+		 * Thay đổi kiểu dữ liệu, hoặc thay đổi value => số phần tử item trong list ko đổi
+		 */
+		//String::toUpperCase  là functionPoint
 		List<String> myList = list.stream()
-							  .map(String::toUpperCase)
+							  .<String>map(String::toUpperCase)
 							  .collect(Collectors.toList());  // new List
 		    
 		System.out.println(myList.toString());

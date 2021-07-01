@@ -2,6 +2,7 @@ package hung.com.java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -33,7 +34,13 @@ public class App2_List {
 		//cách viết khác
 //		list.forEach(System.out::println);
 
+		// cach khac
+		Iterator<String > it = list.iterator();
 		
+		while(it.hasNext()) {
+			String v = it.next();
+			System.out.println(v);
+		}
 	}
 
 }

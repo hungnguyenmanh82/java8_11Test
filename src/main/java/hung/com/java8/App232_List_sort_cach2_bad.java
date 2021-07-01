@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class App232_List_sort2 {
+public class App232_List_sort_cach2_bad {
 
 	public static class User {
 

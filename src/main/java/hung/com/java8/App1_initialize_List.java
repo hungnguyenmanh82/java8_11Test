@@ -25,6 +25,7 @@ public class App1_initialize_List {
 		// JDK 8
 		/**
 		 * Học từ JavaScript
+		 * Stream: là class thêm vào ở Java 8 để xử lý với Array
 		 */
 		List<String> list2 = Stream.of("one", "two", "three").collect(Collectors.toList());
 		

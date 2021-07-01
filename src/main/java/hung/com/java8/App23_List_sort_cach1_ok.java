@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class App23_List_sort {
+public class App23_List_sort_cach1_ok {
 
 	public static void main(String[] args) {
 		List<String> list = Arrays.asList("9", "A", "Z", "1", "B", "Y", "4", "a", "c");

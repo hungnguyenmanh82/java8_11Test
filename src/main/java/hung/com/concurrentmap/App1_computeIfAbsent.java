@@ -12,32 +12,27 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class App1_computeIfAbsent {
 
-	public static void main(String[] args)   
-	{   
-		
-		Map<String, String> chm = new ConcurrentHashMap<String, String>();   
-		//put is used to add value to map  
-		chm.put("1", "1");   
-		chm.put("2", "10");   
-		chm.put("3", "100");   
-		chm.put("4", "2");   
-		chm.put("5", "20");   
-		chm.put("6", "200");   
 
-		System.out.println("Values in map with detail:" + chm.toString());
-
-		/**
-		 * tính toán lại giá trị cho trường hợp: key = "6"
-		 */
-		chm.compute("6", (key , value)->{ 
-			/**
-			 * key = "6",  (kiểu String)
-			 * value = "200"  (current value)
-			 */
-			return (value + 100);  // = new value = "200" + "100" = 200100
-		});
-
-		System.out.println("Map after using  compute(): "  + chm);   
-	}  
+	
+    public static void main(String[] args)   
+    {   
+          // crete a HashMap and add some values   
+        HashMap<String, Integer> mapcon      = new HashMap<>();   
+        mapcon.put("k1", 100);   
+        mapcon.put("k2", 200);   
+        mapcon.put("k3", 300);   
+        mapcon.put("k4", 400); 
+        
+        System.out.println("HashMap values :  " + mapcon.toString());    
+        
+        /**
+         * key = "k5", "k6" ko tồn tại trong HashMap thì gọi (key)->{}
+         * nếu key tồn tại thì hàm compute trả về value tương ứng với key
+         */
+        mapcon.computeIfAbsent("k5", (key) -> 200 + 300);   
+        mapcon.computeIfAbsent("k6", (key) -> 60 * 10); 
+        
+        System.out.println("New HashMap after computeIfAbsent : "+ mapcon);   
+    } 
 
 }

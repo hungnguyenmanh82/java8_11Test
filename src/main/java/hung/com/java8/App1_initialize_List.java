@@ -14,7 +14,7 @@ public class App1_initialize_List {
 
 	public static void main(String[] args) {
 		// JDK2
-		List<String> list = Arrays.asList("one", "two", "three");
+		List<String> list = Arrays.<String>asList("one", "two", "three");
 		
 		// JDK 7
 		List<String> list1 = new ArrayList<>();

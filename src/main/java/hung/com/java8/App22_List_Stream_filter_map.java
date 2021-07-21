@@ -54,7 +54,14 @@ public class App22_List_Stream_filter_map {
 		
 		listFilter.add("AAAAAAAA");
 		listFilter.forEach(item->System.out.println(item));
-
+		
+		System.out.println("=========================== filter .toArrays ====================");
+		
+		String[] arrString =  list.stream().filter(item-> item.equals("two"))     // True: giữ lại item. False: loại bỏ item
+										  .toArray(size -> new String[size]);   // khởi tạo 1 mảng String, sau đó gán các item trong stream cho mảng này
+		
+		System.out.println(String.join(",", arrString));
+		
 		System.out.println("=========================== map1 ====================");
 		/**
 		 * map: mục đích là thay đổi giá trị của item => giống như encode/decode vậy

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-public class App232_List_sort_cach2_bad {
+public class App232_List_sort_cach2_best {
 
 	public static class User {
 
@@ -54,9 +54,17 @@ public class App232_List_sort_cach2_bad {
 
 
 		// cách 1:
-		/*List<User> sortedList = users.stream()
-				.sorted((o1, o2) -> o1.getAge() - o2.getAge())
-				.collect(Collectors.toList());*/
+		List<User> sortedList = users.stream()
+				.sorted((User o1, User o2) -> {
+					/**
+					 * return = 0 =>     o1 = o2
+					 * return = negative =>    o1 < o2  
+					 * return = positive  =>    o1 > o2
+					 *  Nếu muốn thay đổi order thì Thay đổi giá trị return ở trên giưa negative và positive
+					 */
+					return (o1.getAge() - o2.getAge() );
+				})
+				.collect(Collectors.toList()); // convert Stream to List
 
 		// cách 2:
 		/**
@@ -65,9 +73,9 @@ public class App232_List_sort_cach2_bad {
 		 * Ta sẽ bắt gặp cánh dùng này rất thường xuyên
 		 * User::getAge = int getAge()  => int functionPoint(User o) 
 		 */
-		List<User> sortedList = users.stream()
-				.sorted(Comparator.comparingInt(User::getAge))   
-				.collect(Collectors.toList());
+//		List<User> sortedList = users.stream()
+//				.sorted(Comparator.comparingInt(User::getAge))   
+//				.collect(Collectors.toList());
 
 		/**
 		 * cách viết implicit biến

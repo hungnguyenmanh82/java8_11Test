@@ -12,19 +12,18 @@ public class App23_List_sort_cach1_ok {
 		List<String> list = Arrays.asList("9", "A", "Z", "1", "B", "Y", "4", "a", "c");
 
 
-		list.stream()
-		.sorted((o1,o2)->{ //comparator
+		List<String> sortedList = list.stream()
+		.sorted((String o1, String o2)->{ //comparator
 			/**
 			 * return = 0 =>     o1 = o2
-			 * return = -1 =>    o1 < o2
-			 * return = 1  =>    o1 > o2
+			 * return = negative -1 =>    o1 < o2  
+			 * return = positive  1 =>    o1 > o2
 			 *  Nếu muốn thay đổi order thì Thay đổi giá trị return ở trên giưa 1 và -1
 			 */
 			return o1.compareTo(o2); // String có sẵn hàm comparable nên mới vậy
-		})
-		.forEach(o-> System.out.println(o));   //forEach này ko tiến hành từ last Element đc
-		//.collect(Collectors.toList());
-
+		}).collect(Collectors.toList());
+		
+		sortedList.forEach(o-> System.out.println(o));   //forEach này ko tiến hành từ last Element đc
 		
 	}
 

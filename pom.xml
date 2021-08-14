@@ -8,6 +8,31 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
+	
+	
+	<dependencies>
+		<!-- Version của api và core phải giống nhau, nếu ko sẽ báo lỗi -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.13.2</version>
+		</dependency>
+
+		<!-- Asynchronous Logging: nếu thiều lib này sẽ báo lỗi (need file log4j2.component.properties) -->
+		<!-- Synchronous logging: nếu thiếu lib này ko báo lỗi -->
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.4.2</version>
+		</dependency>
+
+	</dependencies>
+	
   	<build>
 		<!-- tạo file *.jar ko include lib vào -->
 		<plugins>

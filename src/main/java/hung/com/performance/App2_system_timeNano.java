@@ -18,18 +18,19 @@ public class App2_system_timeNano {
 	public static void main(String[] args) {
 
 		long total = 0;
+		int n = 1000;
 		// như vậy giữa 2 lệnh này ngốn khá nhiều tài nguyên
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < n; i++) {
 			long timeNano1 = System.nanoTime();		
 			long timeNano2 = System.nanoTime();
-			log.debug("timeNano2 - timeNano1 = " + (timeNano2 -timeNano1)); // = [400ns,1500ns]
+			log.debug("timeNano2 - timeNano1 = {} ns", (timeNano2 -timeNano1)); // = [0ns,1500ns]
 			
 			total += timeNano2 -timeNano1; 
 			System.out.println();
 		}
 		
-		double avarage = (double)total/1000;
-		log.debug("=================== avarage = "+ avarage);
+		double avarage = (double)total/n;
+		log.debug("=================== avarage = {} ns", avarage);
 
 	}
 

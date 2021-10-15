@@ -13,11 +13,11 @@
 		<Property name="LOG_PATTERN_2">%d{ISO8601} [%-6p] %c{2} - %m%n</Property>
 		<!-- %c: là fullClassName gồm cả package -->
 		<Property name="LOG_PATTERN_3">%d [%p] %c - %m%n</Property>
-		
+
 		<!-- %d{yyyy/MM/dd HH:mm:ss.SSS} định dạng đầu ra cho date, chú ý dầu . cho CSV -->
-		<!-- %-6p:  log level trên 6 ký tự -->
+		<!-- %-6p: log level trên 6 ký tự -->
 		<Property name="LOG_PATTERN_4">%d{yyyy/MM/dd HH:mm:ss.SSS} [%-6p] %c{1} - %m%n</Property>
-			
+
 		<!-- %F: file, %L: line -->
 		<Property name="LOG_PATTERN_5">%d [%-6p] %c{1}.%M(%F:%L) - %m%n</Property>
 		<!-- log4j2 sẽ lấy date theo local timezone của máy tính or container -->
@@ -26,20 +26,23 @@
 		<Property name="LOG_PATTERN_6">%d{DEFAULT}{GMT+7} [%-6p] %c{2}.%M(%F:%L) - %m%n</Property>
 		<!-- %M: method -->
 		<Property name="LOG_PATTERN_7">%d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+7} [%-6p] %c.%M(%F:%L) - %m%n</Property>
-
+		<Property name="LOG_PATTERN_71">%d{yyyy-MM-dd HH:mm:ss.SSSZ}{GMT+7} [%-6p] %c.%M(%F:%L) - %m%n</Property>
+		<Property name="LOG_PATTERN_72">%d{yyyy-MM-dd HH:mm:ss.SSSX}{GMT+7} [%-6p] %c.%M(%F:%L) - %m%n</Property>
+		
 		<!-- loại bỏ Date -->
 		<Property name="LOG_PATTERN_8">[%-6p] %c{1}.%M(%F:%L) - %m%n</Property>
 
 		<!-- show file ko cần location (%F:%L) -->
 		<Property name="LOG_PATTERN_9">[%-6p] (%c{1}.java:1) - %m%n</Property>
-		<!-- %tid: threadId, %tn threadName, %tp ThreadPriority-->
-		<Property name="LOG_PATTERN_10">%tid:%tn:%tp [%-6p] %c{1}.%M(%F:%L) - %m%n</Property>
+		<!-- %tid: threadId, %tn threadName, %tp ThreadPriority -->
+		<Property name="LOG_PATTERN_10">%d [%-6p] %tid:%tn:%tp %c{1}.%M(%F:%L) - %m%n</Property>
 
 		<Property name="basePath">C:\\logs</Property>
 		<Property name="basePath1">.</Property>
 	</Properties>
 
 	<Appenders>
+
 		<Console name="console"  target="SYSTEM_OUT">
 			<PatternLayout pattern="${LOG_PATTERN_8}" />
 		</Console>
@@ -54,28 +57,7 @@
 			<AppenderRef ref="console" />
 		</Root>
 
-		<!-- dùng PackageName đề filter log level: -->
-		<!-- hung.com.a-->
-		<!-- hung.com.a.b -->
-		<!-- hung.com.a.c -->
-		<!-- tất cả các class thuộc package com.logging.a.b  sẽ đc filter log level = WARN -->
-		<!-- additivity = true logging của logger sẽ bị lặp lại ở các Parrent logger. "com.loging" là parent của "com.logging.a"  -->
-		<!-- nên để additivity = false: log sẽ chỉ dc in ở appender của nó thôi. ko in ở appender của parrent logger -->
-		<!-- root là logger Parrent của mọi logger nên ko cần additivity -->
-		<Logger name="hung.com.a.b" level="error" additivity="false" includeLocation="true">
-			<AppenderRef ref="console" />
-		</Logger>
-		
-		<!-- tất cả các class thuộc package com.logging.a sẽ đc filter log level = WARN -->
-		<Logger name="hung.com.a" level="all" additivity="false" includeLocation="true">
-			<AppenderRef ref="console" />
-		</Logger>
-		
-		<Logger name="io.vertx" level="warn" additivity="false" includeLocation="true">
-			<AppenderRef ref="console" />
-		</Logger>
-		
-		<Logger name="io.netty" level="warn" additivity="false" includeLocation="true">
+		<Logger name="hung.com.abc" level="all" additivity="false" includeLocation="true">
 			<AppenderRef ref="console" />
 		</Logger>
 		

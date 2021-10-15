@@ -23,14 +23,6 @@
 			<version>2.13.2</version>
 		</dependency>
 
-		<!-- Asynchronous Logging: nếu thiều lib này sẽ báo lỗi (need file log4j2.component.properties) -->
-		<!-- Synchronous logging: nếu thiếu lib này ko báo lỗi -->
-		<dependency>
-			<groupId>com.lmax</groupId>
-			<artifactId>disruptor</artifactId>
-			<version>3.4.2</version>
-		</dependency>
-
 	</dependencies>
 	
   	<build>
@@ -46,7 +38,6 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
 		</plugins>
 
 	</build>

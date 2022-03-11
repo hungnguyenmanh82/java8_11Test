@@ -32,10 +32,13 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>11</release>  
-					
-					<!-- Eclipse use it -->
-					<encoding>${project.build.sourceEncoding}</encoding>
+					<!-- cho Plugin biết syntax source *.java là version 11 (JDK >= 11) -->
+					<source>11</source>
+					<!-- compile compatible để run trên JVM 11 (JDK >= 11) -->
+					<!-- Hiện tại dùng JDK 17 là LTS long term support (dùng Oracle or OpenJDK đều ok) -->
+					<target>11</target>
+					<!-- cho Plugin biết *.java đc mã hóa UTF8 -->
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>

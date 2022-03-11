@@ -3,6 +3,7 @@ package hung.com.concurrentmap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * ConcurrentMap hỗ trợ multi thread cùng truy cập vào 1 Map mà ko bị lock lẫn nhau
@@ -15,7 +16,7 @@ public class App1_compute {
 	public static void main(String[] args)   
 	{   
 		
-		Map<String, String> chm = new ConcurrentHashMap<String, String>();   
+		ConcurrentMap<String, String> chm = new ConcurrentHashMap<String, String>();   
 		//put is used to add value to map  
 		chm.put("1", "1");   
 		chm.put("2", "10");   

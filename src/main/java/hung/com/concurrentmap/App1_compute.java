@@ -28,7 +28,11 @@ public class App1_compute {
 		System.out.println("Values in map with detail:" + chm.toString());
 
 		/**
+		 * compute(key, function) là kết hợp của hàm .get() và hàm put()
+		 * lấy giá trị .get(key) ra và tính toán lại đẩy vào put(key, NewValue)
+		 * ----
 		 * tính toán lại giá trị cho trường hợp: key = "6"
+		 * 
 		 */
 		chm.compute("6", (key , value)->{ 
 			/**

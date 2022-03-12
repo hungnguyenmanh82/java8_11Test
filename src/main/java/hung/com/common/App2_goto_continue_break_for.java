@@ -23,7 +23,7 @@ public class App2_goto_continue_break_for {
 			log.debug("1. i = " + i);
 			if(i==1) {
 				log.debug("continue OUTER; i = " + i);
-				continue OUTER;
+				continue OUTER; // jump to OUTER
 			}
 			log.debug("2. i = " + i);
 			if(i == 4) {
@@ -38,7 +38,7 @@ public class App2_goto_continue_break_for {
 					log.debug("1. j = " + j);
 					if(j==2) {
 						log.debug("continue OUTER; i = {},  j = {} ",i, j);
-						continue OUTER;
+						continue OUTER; // jump to OUTER
 					}
 					log.debug("2. j = " + j);
 					

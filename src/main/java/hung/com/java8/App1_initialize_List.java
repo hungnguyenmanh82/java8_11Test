@@ -13,7 +13,7 @@ https://mkyong.com/tutorials/java-8-tutorials/
 public class App1_initialize_List {
 
 	public static void main(String[] args) {
-		// JDK2
+		// JDK2 (nên dùng)
 		List<String> list = Arrays.<String>asList("one", "two", "three");
 		
 		// JDK 7

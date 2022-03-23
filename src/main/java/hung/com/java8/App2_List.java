@@ -19,7 +19,10 @@ public class App2_List {
 		list.add("item3");
 		
 		/**
+		 * Cách 1: forEach
 		 * jump vào forEach(FunctionPointer) để xem cấu trúc functionPointer
+		 * ---
+		 * dùng forEach có performance rất tệ (ko nên dùng)
 		 */
 		// viết tường minh kiểu Java => ko dùng
 //		list.forEach(new Consumer<String>() {
@@ -34,7 +37,10 @@ public class App2_List {
 		//cách viết khác
 //		list.forEach(System.out::println);
 
-		// cach khac
+		/**
+		 * Cách 2: (nên dùng) truyền thống
+		 * cách này cho performance tốt nhất
+		 */
 		Iterator<String > it = list.iterator();
 		
 		while(it.hasNext()) {

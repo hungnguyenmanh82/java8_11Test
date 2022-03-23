@@ -43,6 +43,7 @@ public class App1_compute {
 		});
 
 		System.out.println("Map after using  compute(): "  + chm);   
+		
 	}  
 
 }

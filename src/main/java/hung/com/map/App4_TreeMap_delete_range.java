@@ -2,6 +2,7 @@ package hung.com.map;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -15,7 +16,7 @@ import org.apache.logging.log4j.Logger;
  * TreeMap là sorted binary Tree
  * TreeMap dùng class Comparable của Key để sorting (ko dùng .hashCode() để compare) => Xem String class implement Comparable interface
  * Nó ko có synchronize nên ko hỗ trợ multi-thread cùng truy cập.
- * TreeMap dùng "Red-Black tree" để rebalance Search Tree
+ * TreeMap dùng "Red-Black tree" để rebalance Search Tree với hệ số 1.4 * Height
  * Trc khi tiến hành Delete/insert đều phải search với O(LogN) cơ số 2
  * ------
  * interator của TreeMap duy trì thứ tự    O(logn)
@@ -23,7 +24,7 @@ import org.apache.logging.log4j.Logger;
  * -----
  * 
  */
-public class App1_TreeMap {
+public class App4_TreeMap_delete_range {
 	private static final Logger log = LogManager.getLogger();
 
 	public static void main(String[] args)   
@@ -32,28 +33,19 @@ public class App1_TreeMap {
 		TreeMap<Integer, String> map = new TreeMap<>();
 
 		map.put(10, "value1");
+		map.put(7, "value7");
+		map.put(1, "value1");
 		map.put(2, "value2_1");
 		map.put(2, "value2_2"); // duy nhất 1 Value ứng với key (giá trị cũ sẽ bị xóa)
 		map.put(8, "value8");
 		map.put(12, "value12");
 
-		String value = map.get(8);
-		log.debug("value = {}", value);
-
+		// STEP 1.1: get Min
 		/**
-		 * TreeMap là sorted binary Tree
-		 *  interator của TreeMap duy trì thứ tự lớn nhỏ của key (có thể add hàm compare vào)
-		 *  interator của HashMap ko duy trì thứ tự.
-		 *  interator của LinkedHashMap duy trì thứ tự insert vào dãy (ko phải thứ tự key compare)
-		 *  -----
-		 *  HashMap s
+		 * Ko có delete range trên TreeMap
 		 */
-		map.entrySet().iterator().forEachRemaining((Map.Entry<Integer,String> entry) -> {
-			log.debug("entry = < {},{} >",entry.getKey(), entry.getValue());
-		});
 
 		
-
 	}  
 
 }

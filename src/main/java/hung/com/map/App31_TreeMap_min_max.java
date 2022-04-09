@@ -2,6 +2,7 @@ package hung.com.map;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -23,7 +24,7 @@ import org.apache.logging.log4j.Logger;
  * -----
  * 
  */
-public class App1_TreeMap {
+public class App31_TreeMap_min_max {
 	private static final Logger log = LogManager.getLogger();
 
 	public static void main(String[] args)   
@@ -32,28 +33,39 @@ public class App1_TreeMap {
 		TreeMap<Integer, String> map = new TreeMap<>();
 
 		map.put(10, "value1");
+		map.put(7, "value7");
+		map.put(1, "value1");
 		map.put(2, "value2_1");
 		map.put(2, "value2_2"); // duy nhất 1 Value ứng với key (giá trị cũ sẽ bị xóa)
 		map.put(8, "value8");
 		map.put(12, "value12");
 
-		String value = map.get(8);
-		log.debug("value = {}", value);
-
+		// STEP 1.1: get Min
 		/**
-		 * TreeMap là sorted binary Tree
-		 *  interator của TreeMap duy trì thứ tự lớn nhỏ của key (có thể add hàm compare vào)
-		 *  interator của HashMap ko duy trì thứ tự.
-		 *  interator của LinkedHashMap duy trì thứ tự insert vào dãy (ko phải thứ tự key compare)
-		 *  -----
-		 *  HashMap s
+		 * jump code thấy nó Search min là leaf-left: complexity = O(logN)
+		 * ---
+		 * Nếu lưu Min, Max từ đầu thì đỡ mất công search.
+		 * Vd: bài toán get expire mà lần nào tìm giá trị cũng phải search thì ko tối ưu
 		 */
-		map.entrySet().iterator().forEachRemaining((Map.Entry<Integer,String> entry) -> {
-			log.debug("entry = < {},{} >",entry.getKey(), entry.getValue());
-		});
-
+		Map.Entry min = map.firstEntry();
+		log.debug("min = {}", min);
 		
-
+		// STEP 1.2: delete Min
+		/**
+		 * vẫn là search trc khi delete O(logN)
+		 */
+		Map.Entry min2 = map.pollFirstEntry();
+		log.debug("delete: min = {}", min);
+		log.debug("====== map = {}", map);
+		
+		// STEP 2: get max
+		/**
+		 * Max cũng tương tự min là leaf-right: complexity = O(logN)
+		 */
+		Map.Entry max = map.lastEntry();
+		log.debug("max = {}", max);
+		
+		
 	}  
 
 }

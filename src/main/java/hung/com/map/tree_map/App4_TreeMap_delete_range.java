@@ -1,4 +1,4 @@
-package hung.com.map;
+package hung.com.map.tree_map;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
  * TreeMap là sorted binary Tree
  * TreeMap dùng class Comparable của Key để sorting (ko dùng .hashCode() để compare) => Xem String class implement Comparable interface
  * Nó ko có synchronize nên ko hỗ trợ multi-thread cùng truy cập.
- * TreeMap dùng "Red-Black tree" để rebalance Search Tree
+ * TreeMap dùng "Red-Black tree" để rebalance Search Tree với hệ số 1.4 * Height
  * Trc khi tiến hành Delete/insert đều phải search với O(LogN) cơ số 2
  * ------
  * interator của TreeMap duy trì thứ tự    O(logn)
@@ -24,7 +24,7 @@ import org.apache.logging.log4j.Logger;
  * -----
  * 
  */
-public class App31_TreeMap_min_max {
+public class App4_TreeMap_delete_range {
 	private static final Logger log = LogManager.getLogger();
 
 	public static void main(String[] args)   
@@ -42,29 +42,9 @@ public class App31_TreeMap_min_max {
 
 		// STEP 1.1: get Min
 		/**
-		 * jump code thấy nó Search min là leaf-left: complexity = O(logN)
-		 * ---
-		 * Nếu lưu Min, Max từ đầu thì đỡ mất công search.
-		 * Vd: bài toán get expire mà lần nào tìm giá trị cũng phải search thì ko tối ưu
+		 * Ko có delete range trên TreeMap
 		 */
-		Map.Entry min = map.firstEntry();
-		log.debug("min = {}", min);
-		
-		// STEP 1.2: delete Min
-		/**
-		 * vẫn là search trc khi delete O(logN)
-		 */
-		Map.Entry min2 = map.pollFirstEntry();
-		log.debug("delete: min = {}", min);
-		log.debug("====== map = {}", map);
-		
-		// STEP 2: get max
-		/**
-		 * Max cũng tương tự min là leaf-right: complexity = O(logN)
-		 */
-		Map.Entry max = map.lastEntry();
-		log.debug("max = {}", max);
-		
+
 		
 	}  
 

@@ -1,8 +1,6 @@
-package hung.com.concurrentmap;
+package hung.com.map.concurrent_map;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ConcurrentMap hỗ trợ multi thread cùng truy cập vào 1 Map mà ko bị lock lẫn nhau

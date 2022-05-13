@@ -1,9 +1,6 @@
-package hung.com.concurrentmap;
+package hung.com.map.concurrent_map;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,7 +33,9 @@ public class App1_compute {
 		 * lấy giá trị .get(key) ra và tính toán lại đẩy vào put(key, NewValue)
 		 * ----
 		 * tính toán lại giá trị cho trường hợp: key = "6"
-		 * 
+		 * ----
+		 * .compute() có thể dùng để tạo CAS (trong khi .put() ko thể tạo CAS đc)
+		 * .compute() sẽ bị synchronized lâu hơn so với .put()
 		 */
 		// STEP 1: key tồn tại
 		String value_key6 = chm.compute("6", (key , value)->{ 

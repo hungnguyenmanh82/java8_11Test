@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
  * TreeMap là sorted binary Tree
  * TreeMap dùng class Comparable của Key để sorting (ko dùng .hashCode() để compare) => Xem String class implement Comparable interface
  * Nó ko có synchronize nên ko hỗ trợ multi-thread cùng truy cập.
- * TreeMap dùng "Red-Black tree" để rebalance Search Tree với hệ số 1.4 * Height
+ * TreeMap dùng "Red-Black tree" để rebalance Search Tree với hệ số Height = 2 * logN
  * Trc khi tiến hành Delete/insert đều phải search với O(LogN) cơ số 2
  * ------
  * interator của TreeMap duy trì thứ tự    O(logn)

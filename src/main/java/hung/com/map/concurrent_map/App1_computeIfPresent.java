@@ -23,7 +23,7 @@ public class App1_computeIfPresent {
         /**
          * key = "k4", "k5" là giá trị đã tồn tại trong Map rồi
          */
-        mapcon.computeIfPresent("k4", (key , val)  -> val + 100);   
+        Integer value = mapcon.computeIfPresent("k4", (key , val)  -> val + 100);
          
         mapcon.computeIfPresent("k5", (key , val)  -> val + 100);   
         

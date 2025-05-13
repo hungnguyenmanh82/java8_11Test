@@ -38,8 +38,10 @@ public class App1_computeIfAbsent {
          * key = "k5", "k6" ko tồn tại trong HashMap thì gọi (key)->{}
          * nếu key tồn tại thì hàm compute trả về value tương ứng với key
          */
-        mapcon.computeIfAbsent("k5", (key) -> 200 + 300);   
-        mapcon.computeIfAbsent("k6", (key) -> 60 * 10); 
+        value = mapcon.computeIfAbsent("k5", (key) -> 200 + 300);
+        log.debug("key = k5, value = {}", value); // = 500
+        mapcon.computeIfAbsent("k6", (key) -> 60 * 10);
+        log.debug("key = k6, value = {}", value); // = 600
         
         // thứ tự ko chuẩn, muốn thứ tự insert phải dùng LinkedHashMap
         log.debug("===== New HashMap after computeIfAbsent : "+ mapcon);   

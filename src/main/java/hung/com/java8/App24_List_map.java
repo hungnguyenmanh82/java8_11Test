@@ -17,8 +17,9 @@ public class App24_List_map {
 		List<String> list = Arrays.asList("a", "b", "c");
 		
 		/**
-		 * Map: là thuật ngữ để chỉ việc interceptor nhặc format lại dữ liệu
+		 * Map: là thuật ngữ để chỉ việc interceptor để format lại dữ liệu
 		 * Thay đổi kiểu dữ liệu, hoặc thay đổi value => số phần tử item trong list ko đổi
+		 * map 1:1 => tạo ra array mới
 		 */
 		//String::toUpperCase  là functionPoint
 		List<String> myList = list.stream()

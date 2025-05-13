@@ -31,6 +31,8 @@ public class App1_compute {
 		/**
 		 * compute(key, function) là kết hợp của hàm .get() và hàm put()
 		 * lấy giá trị .get(key) ra và tính toán lại đẩy vào put(key, NewValue)
+		 * -----
+		 * Nhược điểm: nếu muốn giữ nguyên giá trị cũ thì vẫn phải write đè lên giá trị cũ với Put()
 		 * ----
 		 * tính toán lại giá trị cho trường hợp: key = "6"
 		 * ----
@@ -50,12 +52,20 @@ public class App1_compute {
 		});
 
 		
-		// STEP 2: key ko tồn tại
+		// STEP 2: key ko tồn tại, tạo mới
 		String value_key9 = chm.compute("9", (String key ,String value)->{ 
 			
 			log.debug("<key,value> = <{},{}>", key, value);
 
 			return "value_9";  // = new value = "200" + "100" = 200100
+		});
+
+		// STEP 3: xóa key = 1 đi
+		String value_key1 = chm.compute("1", (String key ,String value)->{
+
+			log.debug("<key,value> = <{},{}>", key, value);
+
+			return null;  // xóa key = 1 đi
 		});
 		log.debug("======= Map after .compute(): {}", chm);
 		

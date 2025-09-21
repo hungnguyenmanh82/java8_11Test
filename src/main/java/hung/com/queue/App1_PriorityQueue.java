@@ -9,7 +9,7 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
- * Giải thuật vun đống của PriorityQueue giống java timer dùng Array để vun đống
+ * Giải thuật vun đống Heap Variant của PriorityQueue giống java timer dùng Array để vun đống
  * Nó có nhược điểm của BinaryTree là ko làm việc đồng thời với MultiThread đc
  * Khi 1 thread read/write thì các thread khác sẽ bị block lại
  * Vun đống trên Array có nhược điểm là số lệnh Swap khá nhiều (tức write nhiều) nên performance ko tốt
@@ -29,6 +29,10 @@ public class App1_PriorityQueue {
          * PriorityQueue.offer() sẽ add từ cuối Array và vun đống
          * PriorityQueue.poll() sẽ lấy từ đỉnh Heap là Min, sau đó lấy phần tử cuối lên đầu rồi vun đống lại nhánh đó
          * peek: lấy từ đỉnh queue, nhưng ko remove phần tử đó khỏi queue
+         * -------
+         * có thể thay Integer bằng Class extend Comparable
+         * vd: class HuffmanNode implements Comparable<HuffmanNode>{}
+         * PriorityQueue cần dựa vào Comparable để so sánh
          */
         Queue<Integer> queue = new PriorityQueue<Integer>();
 

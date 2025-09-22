@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * DelayQueue đc dùng bởi ScheduledThreadPoolExecutor
  * DelayQueue lại dùng PriorityQueue kết hợp với check điều kiện Expire .getDelay()
+ * -----
+ * PriorityQueue, DelayQueue nhỏ hơn sẽ lên đầu (trên đỉnh)
  */
 public class App2_DelayQueue {
     private static final Logger log = LogManager.getLogger();

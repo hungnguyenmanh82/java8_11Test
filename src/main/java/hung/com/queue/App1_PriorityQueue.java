@@ -15,6 +15,8 @@ import java.util.concurrent.PriorityBlockingQueue;
  * Vun đống trên Array có nhược điểm là số lệnh Swap khá nhiều (tức write nhiều) nên performance ko tốt
  * -----
  * Java Timer, Schedule đang dùng giải thuật này nên sẽ gặp vấn đề với multi-thread
+ * -----
+ * PriorityQueue, DelayQueue nhỏ hơn sẽ lên đầu (trên đỉnh)
  */
 public class App1_PriorityQueue {
     private static final Logger log = LogManager.getLogger();
